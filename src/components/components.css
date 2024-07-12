@@ -1,0 +1,25 @@
+.FormBox {
+  padding: 20px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.FormGrid {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 20px;
+}
+
+.telephone {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.buttonGrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

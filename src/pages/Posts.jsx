@@ -1,42 +1,55 @@
-import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Avatar from "@mui/material/Avatar";
+import Typography from "@mui/material/Typography";
+import { useEffect, useState } from "react";
+import { Grid } from "@mui/material";
+import "./../index.css";
 
 const Posts = () => {
-  return (
-    <div className="rounded-lg bg-gray-50 p-7 text-gray-900 shadow-lg">
-      <h1 className="mb-7 text-4xl font-bold">Posts</h1>
-      <Link to="/" className="mb-4 flex items-center text-blue-600 hover:underline">
-        <Icon icon="mdi:arrow-left" className="mr-2" />
-        Back to Home
-      </Link>
+  const [postData, setPostData] = useState([]);
+  useEffect(() => {
+    fetch("https://codebuddy.review/posts")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setPostData(data.data);
+      });
+  }, []);
 
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div className="rounded-lg bg-white p-7 shadow-lg">
-          <h2 className="text-2xl font-bold">Post 1</h2>
-          <p className="text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo voluptatem, quibusdam,
-            quos, voluptatum voluptas quod quas voluptates quia doloribus nobis voluptatibus. Quam,
-            voluptate voluptatum. Quod, voluptate? Quisquam, voluptate voluptatum.
-          </p>
-        </div>
-        <div className="rounded-lg bg-white p-7 shadow-lg">
-          <h2 className="text-2xl font-bold">Post 2</h2>
-          <p className="text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo voluptatem, quibusdam,
-            quos, voluptatum voluptas quod quas voluptates quia doloribus nobis voluptatibus. Quam,
-            voluptate voluptatum. Quod, voluptate? Quisquam, voluptate voluptatum.
-          </p>
-        </div>
-        <div className="rounded-lg bg-white p-7 shadow-lg">
-          <h2 className="text-2xl font-bold">Post 3</h2>
-          <p className="text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo voluptatem, quibusdam,
-            quos, voluptatum voluptas quod quas voluptates quia doloribus nobis voluptatibus. Quam,
-            voluptate voluptatum. Quod, voluptate? Quisquam, voluptate voluptatum.
-          </p>
-        </div>
-      </div>
-    </div>
+  return (
+    <>
+      <Typography className="propsHeader" variant="h6">
+        Lets see what people posted recently !
+      </Typography>
+      <Grid container spacing={2} sx={{ flexGrow: 1 }}>
+        {postData?.map((data) => (
+          <Grid item key={data.id} xs={12} md={6} lg={4}>
+            <Card>
+              <CardContent className="cardContect">
+                <img src={data?.image} width={"100%"}></img>
+                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                  {data?.writeup}
+                </Typography>
+                <Grid className="authorGrid">
+                  <Grid className="avatarGrid">
+                    <Avatar alt="Remy Sharp" src={data?.avatar} />
+                  </Grid>
+                  <Grid>
+                    <Typography variant="h5" component="div">
+                      {data?.firstName} {" " + data?.lastName}
+                    </Typography>
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                      {data?.id}
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </>
   );
 };
 

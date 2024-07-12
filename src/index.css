@@ -3,3 +3,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.StepperBox {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.StepperPaper {
+  width: 60%;
+  padding: 20px;
+}
+
+.authorGrid {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-content: center;
+  justify-content: center;
+}
+
+.avatarGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardContect {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-content: center;
+
+  justify-content: center;
+}
+
+.propsHeader {
+  font-size: medium;
+  padding: 10px;
+  text-align: center;
+}

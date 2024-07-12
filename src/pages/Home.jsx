@@ -1,5 +1,8 @@
 import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+import HorizontalLinearStepper from "../components/Stepper";
+import { Box, Paper } from "@mui/material";
+import "./../index.css";
 
 const Home = () => {
   return (
@@ -9,19 +12,17 @@ const Home = () => {
         Home
       </h1>
 
-      <h2 className="mb-3 text-2xl">Welcome to the home page!</h2>
+      <h2 className="mb-3 text-2xl">Kindly Register Yourself </h2>
+      <Box className="StepperBox">
+        <Paper className="StepperPaper">
+          <HorizontalLinearStepper></HorizontalLinearStepper>
+        </Paper>
+      </Box>
 
-      <p className="mb-7">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus eos quis iure unde incidunt?
-        Hic, quisquam. Voluptate placeat officiis corporis dolores ea unde maxime, sed nulla cumque
-        amet quam aliquam quas incidunt debitis sit aut a soluta quisquam repellat dignissimos qui.
-        Perspiciatis similique quaerat reiciendis nam aliquam?
-      </p>
-
-      <Link to="/posts" className="flex items-center text-blue-600 hover:underline">
+      {/* <Link to="/posts" className="flex items-center text-blue-600 hover:underline">
         Posts
         <Icon icon="mdi:arrow-right" className="ml-2" />
-      </Link>
+      </Link> */}
     </div>
   );
 };
