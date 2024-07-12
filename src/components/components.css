@@ -8,7 +8,7 @@
 .FormGrid {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 80%;
   gap: 20px;
 }
 
@@ -20,6 +20,6 @@
 
 .buttonGrid {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
 }

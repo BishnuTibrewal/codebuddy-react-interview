@@ -198,7 +198,7 @@ export default function Form1(props) {
                 }}
                 my={2}
               ></TextField>
-              <Grid className="buttonGrid">
+              <Grid className="buttonGrid" flexDirection={{ xs: "column", md: "row" }}>
                 <Button
                   disabled
                   variant="contained"
@@ -279,7 +279,7 @@ export default function Form1(props) {
                 }}
                 helperText={addressData.addressHelperText}
               ></TextField>
-              <Grid className="buttonGrid">
+              <Grid className="buttonGrid" flexDirection={{ xs: "column", md: "row" }}>
                 <Button
                   variant="contained"
                   onClick={() => {
@@ -356,7 +356,7 @@ export default function Form1(props) {
                 control={<Checkbox onChange={handleCheckbox} />}
                 label="Accept terms&conditions to proceed. You wont be allowed to progress otherwise"
               />
-              <Grid className="buttonGrid">
+              <Grid className="buttonGrid" flexDirection={{ xs: "column", md: "row" }}>
                 <Button
                   variant="contained"
                   onClick={() => {
